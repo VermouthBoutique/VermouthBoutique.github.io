@@ -14,7 +14,8 @@
 "vista": "Detrás",
 "img": "img/vb01.jpg"
 }
-]
+],
+"talla": "L"
 },
 {
 "ref": "VB-03",
@@ -27,7 +28,8 @@
 "vista": "",
 "img": "img/vb03.jpg"
 }
-]
+],
+"talla": "XL"
 },
 {
 "ref": "VB-05",
@@ -44,7 +46,8 @@
 "vista": "Detrás",
 "img": "img/vb04.jpg"
 }
-]
+],
+"talla": "XL"
 },
 {
 "ref": "VB-06",
@@ -57,7 +60,8 @@
 "vista": "",
 "img": "img/vb06.jpg"
 }
-]
+],
+"talla": "XL"
 },
 {
 "ref": "VB-07",
@@ -74,7 +78,8 @@
 "vista": "Detrás",
 "img": "img/vb08.jpg"
 }
-]
+],
+"talla": "XL"
 },
 {
 "ref": "VB-09",
@@ -87,7 +92,8 @@
 "vista": "",
 "img": "img/vb09.jpg"
 }
-]
+],
+"talla": "XL"
 },
 {
 "ref": "VB-10",
@@ -139,7 +145,8 @@
 "vista": "",
 "img": "img/vb13.jpg"
 }
-]
+],
+"talla": "M"
 },
 {
 "ref": "VB-14",
@@ -152,7 +159,8 @@
 "vista": "",
 "img": "img/vb14.jpg"
 }
-]
+],
+"talla": "M"
 },
 {
 "ref": "VB-15",
@@ -165,7 +173,8 @@
 "vista": "",
 "img": "img/vb15.jpg"
 }
-]
+],
+"talla": "M"
 },
 {
 "ref": "VB-16",
@@ -178,7 +187,8 @@
 "vista": "",
 "img": "img/vb16.jpg"
 }
-]
+],
+"talla": "M"
 },
 {
 "ref": "VB-18",
@@ -195,7 +205,8 @@
 "vista": "Detrás",
 "img": "img/vb17.jpg"
 }
-]
+],
+"talla": "XL"
 },
 {
 "ref": "VB-20",
@@ -212,7 +223,8 @@
 "vista": "Detrás",
 "img": "img/vb19.jpg"
 }
-]
+],
+"talla": "3XL"
 },
 {
 "ref": "VB-21",
@@ -225,7 +237,8 @@
 "vista": "",
 "img": "img/vb21.jpg"
 }
-]
+],
+"talla": "L"
 },
 {
 "ref": "VB-22",
@@ -256,7 +269,8 @@
 "vista": "",
 "img": "img/vb25.jpg"
 }
-]
+],
+"talla": "XL"
 },
 {
 "ref": "VB-26",
@@ -269,7 +283,8 @@
 "vista": "",
 "img": "img/vb26.jpg"
 }
-]
+],
+"talla": "XL"
 },
 {
 "ref": "VB-28",
@@ -286,7 +301,8 @@
 "vista": "Detrás",
 "img": "img/vb27.jpg"
 }
-]
+],
+"talla": "XXL"
 },
 {
 "ref": "VB-29",
@@ -299,7 +315,8 @@
 "vista": "",
 "img": "img/vb29.jpg"
 }
-]
+],
+"talla": "XL"
 },
 {
 "ref": "VB-30",
@@ -312,7 +329,8 @@
 "vista": "",
 "img": "img/vb30.jpg"
 }
-]
+],
+"talla": "L"
 },
 {
 "ref": "VB-31",
@@ -325,7 +343,8 @@
 "vista": "",
 "img": "img/vb31.jpg"
 }
-]
+],
+"talla": "XL"
 },
 {
 "ref": "VB-32",
@@ -338,7 +357,8 @@
 "vista": "",
 "img": "img/vb32.jpg"
 }
-]
+],
+"talla": "XL"
 },
 {
 "ref": "VB-34",
@@ -355,7 +375,8 @@
 "vista": "Detrás",
 "img": "img/vb33.jpg"
 }
-]
+],
+"talla": "XL"
 },
 {
 "ref": "VB-35",
@@ -368,7 +389,8 @@
 "vista": "",
 "img": "img/vb35.jpg"
 }
-]
+],
+"talla": "2XL"
 },
 {
 "ref": "VB-36",
@@ -381,7 +403,8 @@
 "vista": "",
 "img": "img/vb36.jpg"
 }
-]
+],
+"talla": "L"
 },
 {
 "ref": "VB-37",
@@ -394,7 +417,8 @@
 "vista": "",
 "img": "img/vb37.jpg"
 }
-]
+],
+"talla": "XL"
 },
 {
 "ref": "VB-39",
@@ -411,7 +435,8 @@
 "vista": "Detrás",
 "img": "img/vb38.jpg"
 }
-]
+],
+"talla": "L"
 },
 {
 "ref": "VB-40",

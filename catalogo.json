@@ -767,5 +767,23 @@
 }
 ],
 "talla": "2XL"
+},
+{
+"ref": "VB-68",
+"cat": "Camiseta",
+"color": "Verde oliva",
+"precio": "",
+"nuevo": true,
+"fotos": [
+{
+"vista": "Delante",
+"img": "img/vb68.jpg"
+},
+{
+"vista": "Detrás",
+"img": "img/vb68b.jpg"
+}
+],
+"talla": "L"
 }
 ]

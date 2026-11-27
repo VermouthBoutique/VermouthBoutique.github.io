@@ -90,7 +90,7 @@ footer{text-align:center;color:var(--sub);font-size:13px;padding:0 16px 40px}
 {
 // Número de WhatsApp de la tienda con indicativo, solo dígitos (ej. 573001234567). Vacío = el cliente elige el chat.
 let WA_NUMBER = "";
-const SW={"Azul noche":"#1c2440","Verde bosque":"#224a34","Rojo":"#b21e26","Blanco":"#fafaf8","Azul acuarela":"#4678b4","Negro":"#161618","Beige":"#d6c4a0","Rosado":"#e8b0b2","Mostaza":"#cea03a","Gris perla":"#c4c4be","Azul cielo":"#c4d6ec","Verde menta":"#c4e2c4","Verde esmeralda":"#46965f","Blanco hueso":"#f4f0e4","Crema":"#f0eac4","Azul rey":"#1e5ac8","Beige arena":"#dec896","Camel":"#c4a068","Azul acero":"#5076a0"};
+const SW={"Azul noche":"#1c2440","Verde bosque":"#224a34","Rojo":"#b21e26","Blanco":"#fafaf8","Azul acuarela":"#4678b4","Negro":"#161618","Beige":"#d6c4a0","Rosado":"#e8b0b2","Mostaza":"#cea03a","Gris perla":"#c4c4be","Azul cielo":"#c4d6ec","Verde menta":"#c4e2c4","Verde esmeralda":"#46965f","Blanco hueso":"#f4f0e4","Crema":"#f0eac4","Azul rey":"#1e5ac8","Beige arena":"#dec896","Camel":"#c4a068","Azul acero":"#5076a0","Verde oliva":"#7a6a28"};
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const waLink=t=>"https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent(t);
 const $=id=>document.getElementById(id);

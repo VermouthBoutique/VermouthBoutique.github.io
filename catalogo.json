@@ -753,5 +753,19 @@
 }
 ],
 "talla": "XL"
+},
+{
+"ref": "VB-67",
+"cat": "Camiseta",
+"color": "Beige",
+"precio": "",
+"nuevo": true,
+"fotos": [
+{
+"vista": "",
+"img": "img/vb67.jpg"
+}
+],
+"talla": "2XL"
 }
 ]

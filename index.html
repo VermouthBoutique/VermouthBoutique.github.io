@@ -89,7 +89,7 @@ footer{text-align:center;color:var(--sub);font-size:13px;padding:0 16px 40px}
 <script>
 {
 // Número de WhatsApp de la tienda con indicativo, solo dígitos (ej. 573001234567). Vacío = el cliente elige el chat.
-let WA_NUMBER = "";
+let WA_NUMBER = "573218458987";
 const SW={"Azul noche":"#1c2440","Verde bosque":"#224a34","Rojo":"#b21e26","Blanco":"#fafaf8","Azul acuarela":"#4678b4","Negro":"#161618","Beige":"#d6c4a0","Rosado":"#e8b0b2","Mostaza":"#cea03a","Gris perla":"#c4c4be","Azul cielo":"#c4d6ec","Verde menta":"#c4e2c4","Verde esmeralda":"#46965f","Blanco hueso":"#f4f0e4","Crema":"#f0eac4","Azul rey":"#1e5ac8","Beige arena":"#dec896","Camel":"#c4a068","Azul acero":"#5076a0","Verde oliva":"#7a6a28"};
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const waLink=t=>"https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent(t);
@@ -143,7 +143,7 @@ document.addEventListener("click",e=>{
 $("dlgX").addEventListener("click",()=>$("dlg").close());
 $("dlg").addEventListener("click",e=>{if(e.target===$("dlg"))$("dlg").close()});
 $("bagClear").addEventListener("click",()=>{bag.clear();save();grid();bagUI();});
-fetch("config.json").then(r=>r.ok?r.json():{}).catch(()=>({})).then(c=>{WA_NUMBER=String(c.wa||"").replace(/[^0-9]/g,"");return fetch("catalogo.json")}).then(r=>r.json()).then(d=>{items=d.filter(i=>!i.agotado);bag=new Set([...bag].filter(r=>items.some(i=>i.ref===r)));render();})
+fetch("config.json?v="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():{}).catch(()=>({})).then(c=>{WA_NUMBER=String(c.wa||WA_NUMBER).replace(/[^0-9]/g,"");return fetch("catalogo.json?v="+Date.now(),{cache:"no-store"})}).then(r=>r.json()).then(d=>{items=d.filter(i=>!i.agotado);bag=new Set([...bag].filter(r=>items.some(i=>i.ref===r)));render();})
   .catch(()=>{$("grid").innerHTML='<p class="empty">No se pudo cargar el catálogo.</p>'});
 }
 </script>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vermouth Boutique · Catálogo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* VOICE: elegante y cercano, como un mostrador de boutique
+   IDEA: el catálogo impreso de la tienda, con el mismo marco crema y filete dorado de las piezas de Instagram
+   PICTURE: las prendas mismas, grandes, en tarjetas enmarcadas
+   COLOUR and TYPE: crema #f6f2eb, tinta #1c1a18, dorado #a37e42 (marca de la tienda); Playfair Display + Poppins
+   LAYOUT: cabecera con nombre, filtros fijos, rejilla de prendas, bolsa de pedido que arma el mensaje de WhatsApp */
+:root{color-scheme:light dark;
+--bg:light-dark(#f6f2eb,#15130f);--card:light-dark(#fffdf9,#1f1c17);--ink:light-dark(#1c1a18,#f3ede2);
+--sub:light-dark(#6e665c,#b3a996);--gold:light-dark(#a37e42,#c9a66b);--line:light-dark(#e4dccd,#3a342a);--wa:#1f8f4e}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Poppins,system-ui,sans-serif;overflow-x:clip}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+header{text-align:center;padding:36px 16px 18px}
+.brand{font:600 clamp(36px,7vw,58px)/1.05 "Playfair Display",Georgia,serif;letter-spacing:.18em;margin:0;padding-left:.18em}
+.sub{display:flex;align-items:center;justify-content:center;gap:16px;color:var(--gold);font-size:14px;letter-spacing:.4em;margin-top:6px}
+.sub::before,.sub::after{content:"";width:70px;height:1.5px;background:var(--gold)}
+.intro{color:var(--sub);max-width:52ch;margin:14px auto 0;font-size:15px}
+.bar{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-block:1px solid var(--line);padding:10px max(4vw,12px)}
+.chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;max-width:1240px;margin:0 auto}
+.chips+.chips{margin-top:8px}
+.chip{flex:none;min-height:40px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:var(--card);font-size:14px;display:flex;align-items:center;gap:8px}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.dot{width:14px;height:14px;border-radius:50%;border:1px solid var(--gold);flex:none}
+main{max-width:1240px;margin:0 auto;padding:22px max(4vw,12px) 120px}
+.count{color:var(--sub);font-size:14px;margin:0 0 14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,230px),1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:10px;display:flex;flex-direction:column}
+.pics{position:relative;border:1px solid var(--gold);overflow:hidden;background:var(--line)}
+.track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;aspect-ratio:600/656}
+.track::-webkit-scrollbar{display:none}
+.ph{flex:0 0 100%;scroll-snap-align:start;border:0;padding:0;background:none;display:block}
+.ph img{width:100%;height:100%;object-fit:cover;display:block}
+.views{display:flex;justify-content:center;gap:6px;margin-top:8px}
+.vw{min-height:36px;padding:0 14px;border-radius:999px;border:1px solid var(--line);background:transparent;font-size:13px}
+.vw[aria-pressed=true]{background:var(--gold);border-color:var(--gold);color:#fff}
+.two{position:absolute;bottom:8px;right:8px;background:#000a;color:#fff;font-size:12px;padding:2px 10px;border-radius:999px;pointer-events:none}
+.new{position:absolute;top:8px;left:8px;background:var(--gold);color:#fff;font-size:12px;padding:2px 10px;border-radius:999px}
+.info{padding:12px 4px 4px;text-align:center;flex:1}
+.cat{color:var(--gold);font-size:13px;letter-spacing:.12em}
+.col{font:500 21px/1.2 "Playfair Display",Georgia,serif;display:flex;align-items:center;justify-content:center;gap:8px;margin:2px 0}
+.ref{color:var(--sub);font-size:13px}
+.price{font-weight:500;margin-top:4px}
+.acts{display:grid;grid-template-columns:1fr auto;gap:8px;margin-top:10px}
+.wa{min-height:44px;border-radius:999px;background:var(--wa);color:#fff;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:8px;font-size:14px;font-weight:500}
+.add{min-height:44px;width:44px;border-radius:50%;border:1px solid var(--gold);background:transparent;font-size:22px;line-height:1}
+.add[aria-pressed=true]{background:var(--gold);color:#fff}
+.empty{text-align:center;color:var(--sub);padding:60px 0}
+.bag{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:6;display:none;align-items:center;gap:12px;background:var(--ink);color:var(--bg);border-radius:999px;padding:8px 8px 8px 20px;box-shadow:0 10px 30px #0004;max-width:calc(100% - 24px)}
+.bag.on{display:flex}
+.bag .wa{padding:0 18px;white-space:nowrap}
+.bag button{background:none;border:0;color:inherit;min-height:44px;text-decoration:underline;font-size:14px}
+dialog{border:0;padding:0;background:var(--card);color:var(--ink);max-width:min(560px,94vw);border-radius:6px}
+dialog::backdrop{background:#000a}
+dialog img{width:100%;display:block}
+.dtrack{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}.dtrack img{flex:0 0 100%;scroll-snap-align:start}
+.dlg{padding:14px 18px 18px;text-align:center}
+.x{position:absolute;top:8px;right:8px;width:44px;height:44px;border-radius:50%;border:0;background:#000a;color:#fff;font-size:22px}
+footer{text-align:center;color:var(--sub);font-size:13px;padding:0 16px 40px}
+@media (prefers-reduced-motion:reduce){.ph img{transition:none}}
+</style>
+</head>
+<body>
+<header>
+  <h1 class="brand">VERMOUTH</h1>
+  <div class="sub">BOUTIQUE</div>
+  <p class="intro">Desliza cada foto o toca Delante / Detrás para ver las dos vistas. Elige tu prenda y pídela por WhatsApp con su referencia. Puedes agregar varias a tu pedido y enviarlas en un solo mensaje.</p>
+</header>
+<div class="bar">
+  <div class="chips" id="cats" role="group" aria-label="Tipo de prenda"></div>
+  <div class="chips" id="cols" role="group" aria-label="Color"></div>
+</div>
+<main>
+  <p class="count" id="count"></p>
+  <div class="grid" id="grid"></div>
+</main>
+<div class="bag" id="bag"><span id="bagTxt"></span><button id="bagClear" type="button">Vaciar</button><a class="wa" id="bagSend" href="#" target="_blank" rel="noopener">Enviar pedido</a></div>
+<dialog id="dlg"><button class="x" id="dlgX" type="button" aria-label="Cerrar">×</button><div class="dtrack" id="dlgImg"></div><div class="dlg" id="dlgInfo"></div></dialog>
+<footer>Vermouth Boutique · Tallas disponibles · Envíos · Precios y disponibilidad por WhatsApp</footer>
+<script>
+{
+// Número de WhatsApp de la tienda con indicativo, solo dígitos (ej. 573001234567). Vacío = el cliente elige el chat.
+let WA_NUMBER = "";
+const SW={"Azul noche":"#1c2440","Verde bosque":"#224a34","Rojo":"#b21e26","Blanco":"#fafaf8","Azul acuarela":"#4678b4","Negro":"#161618","Beige":"#d6c4a0","Rosado":"#e8b0b2","Mostaza":"#cea03a","Gris perla":"#c4c4be","Azul cielo":"#c4d6ec","Verde menta":"#c4e2c4","Verde esmeralda":"#46965f","Blanco hueso":"#f4f0e4","Crema":"#f0eac4","Azul rey":"#1e5ac8","Beige arena":"#dec896","Camel":"#c4a068","Azul acero":"#5076a0"};
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const waLink=t=>"https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent(t);
+const $=id=>document.getElementById(id);
+let items=[],cat="Todo",col="Todos",bag=new Set();
+try{bag=new Set(JSON.parse(localStorage.getItem("vb-bag")||"[]"))}catch(e){}
+const save=()=>{try{localStorage.setItem("vb-bag",JSON.stringify([...bag]))}catch(e){}};
+const label=it=>it.cat+" "+it.color.toLowerCase()+" (ref. "+it.ref+(it.talla?", talla "+it.talla:"")+")";
+const priceTxt=it=>{const p=String(it.precio||"").replace(/[^0-9]/g,"");return p?"$"+Number(p).toLocaleString("es-CO"):(it.precio||"Consultar precio")};
+function chips(){
+  const cats=["Todo",...new Set(items.map(i=>i.cat))];
+  $("cats").innerHTML=cats.map(c=>`<button class="chip" type="button" data-c="${esc(c)}" aria-pressed="${c===cat}">${esc(c)}${c==="Todo"?"":" · "+items.filter(i=>i.cat===c).length}</button>`).join("");
+  const pool=items.filter(i=>cat==="Todo"||i.cat===cat);
+  const cols=["Todos",...new Set(pool.map(i=>i.color).filter(c=>SW[c]))];
+  if(!cols.includes(col))col="Todos";
+  $("cols").innerHTML=cols.map(c=>`<button class="chip" type="button" data-k="${esc(c)}" aria-pressed="${c===col}">${SW[c]?`<span class="dot" style="background:${SW[c]}"></span>`:""}${esc(c)}</button>`).join("");
+}
+function grid(){
+  const list=items.filter(i=>(cat==="Todo"||i.cat===cat)&&(col==="Todos"||i.color===col));
+  $("count").textContent=list.length+(list.length===1?" prenda":" prendas");
+  $("grid").innerHTML=list.length?list.map(it=>`<article class="card">
+    <div class="pics"><div class="track" id="t-${esc(it.ref)}">${it.fotos.map((f,k)=>`<button class="ph" type="button" data-z="${esc(it.ref)}" aria-label="Ver ${esc(label(it))}${f.vista?" "+esc(f.vista.toLowerCase()):""}"><img src="${esc(f.img)}" alt="${esc(label(it))}${f.vista?" · "+esc(f.vista):""}" loading="lazy"></button>`).join("")}</div>${it.nuevo?'<span class="new">Nuevo</span>':""}${it.fotos.length>1?'<span class="two">2 vistas</span>':""}</div>
+    ${it.fotos.length>1?`<div class="views">${it.fotos.map((f,k)=>`<button class="vw" type="button" data-v="${esc(it.ref)}" data-i="${k}" aria-pressed="${k===0}">${esc(f.vista)}</button>`).join("")}</div>`:""}
+    <div class="info"><div class="cat">${esc(it.cat.toUpperCase())}</div>
+    <div class="col">${SW[it.color]?`<span class="dot" style="background:${SW[it.color]}"></span>`:""}${esc(it.color)}</div>
+    <div class="ref">Ref. ${esc(it.ref)}${it.talla?" · Talla "+esc(it.talla):""}</div><div class="price">${esc(priceTxt(it))}</div></div>
+    <div class="acts"><a class="wa" href="${esc(waLink("Hola Vermouth Boutique 👋 Me interesa: "+label(it)+". ¿Qué tallas y precio tienen?"))}" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+    <button class="add" type="button" data-b="${esc(it.ref)}" aria-pressed="${bag.has(it.ref)}" aria-label="Agregar al pedido">${bag.has(it.ref)?"✓":"+"}</button></div>
+  </article>`).join(""):`<p class="empty">No hay prendas con ese filtro.</p>`;
+}
+function bagUI(){
+  const sel=items.filter(i=>bag.has(i.ref));
+  $("bag").classList.toggle("on",sel.length>0);
+  $("bagTxt").textContent=sel.length+(sel.length===1?" prenda en tu pedido":" prendas en tu pedido");
+  $("bagSend").href=waLink("Hola Vermouth Boutique 👋 Quiero pedir:\n"+sel.map(i=>"• "+label(i)).join("\n")+"\n¿Qué tallas y precios tienen?");
+}
+function setView(ref,i){document.querySelectorAll('[data-v="'+CSS.escape(ref)+'"]').forEach(b=>b.setAttribute("aria-pressed",String(+b.dataset.i===i)));}
+document.addEventListener("scroll",e=>{const tr=e.target;if(!tr.classList||!tr.classList.contains("track"))return;setView(tr.id.slice(2),Math.round(tr.scrollLeft/tr.clientWidth));},true);
+function render(){chips();grid();bagUI()}
+document.addEventListener("click",e=>{
+  const t=e.target.closest("[data-c],[data-k],[data-b],[data-z],[data-v]");if(!t)return;
+  if(t.dataset.v!==undefined){const tr=document.getElementById("t-"+t.dataset.v);const i=+t.dataset.i;tr.scrollTo({left:tr.clientWidth*i,behavior:"smooth"});setView(t.dataset.v,i);return;}
+  if(t.dataset.c!==undefined){cat=t.dataset.c;col="Todos";render();}
+  else if(t.dataset.k!==undefined){col=t.dataset.k;render();}
+  else if(t.dataset.b!==undefined){const r=t.dataset.b;bag.has(r)?bag.delete(r):bag.add(r);save();grid();bagUI();}
+  else if(t.dataset.z!==undefined){const it=items.find(i=>i.ref===t.dataset.z);if(!it)return;
+    $("dlgImg").innerHTML=it.fotos.map(f=>`<img src="${esc(f.img)}" alt="${esc(label(it))}">`).join("");
+    $("dlgInfo").innerHTML=`${it.fotos.length>1?'<div class="ref">Desliza para ver delante y detrás</div>':''}<div class="cat">${esc(it.cat.toUpperCase())}</div><div class="col">${esc(it.color)}</div><div class="ref">Ref. ${esc(it.ref)} · ${esc(priceTxt(it))}</div>`;
+    try{$("dlg").showModal()}catch(err){}}
+});
+$("dlgX").addEventListener("click",()=>$("dlg").close());
+$("dlg").addEventListener("click",e=>{if(e.target===$("dlg"))$("dlg").close()});
+$("bagClear").addEventListener("click",()=>{bag.clear();save();grid();bagUI();});
+fetch("config.json").then(r=>r.ok?r.json():{}).catch(()=>({})).then(c=>{WA_NUMBER=String(c.wa||"").replace(/[^0-9]/g,"");return fetch("catalogo.json")}).then(r=>r.json()).then(d=>{items=d.filter(i=>!i.agotado);bag=new Set([...bag].filter(r=>items.some(i=>i.ref===r)));render();})
+  .catch(()=>{$("grid").innerHTML='<p class="empty">No se pudo cargar el catálogo.</p>'});
+}
+</script>
+</body>
+</html>

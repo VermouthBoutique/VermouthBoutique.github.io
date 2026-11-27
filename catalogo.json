@@ -735,5 +735,23 @@
 }
 ],
 "talla": "3XL"
+},
+{
+"ref": "VB-66",
+"cat": "Camiseta",
+"color": "Blanco hueso",
+"precio": "",
+"nuevo": true,
+"fotos": [
+{
+"vista": "Delante",
+"img": "img/vb66.jpg"
+},
+{
+"vista": "Detrás",
+"img": "img/vb66b.jpg"
+}
+],
+"talla": "XL"
 }
 ]

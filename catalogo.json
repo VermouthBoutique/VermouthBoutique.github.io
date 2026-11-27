@@ -674,5 +674,23 @@
 "img": "img/vb64.jpg"
 }
 ]
+},
+{
+"ref": "VB-65",
+"cat": "Camiseta",
+"color": "Blanco",
+"precio": "",
+"nuevo": true,
+"fotos": [
+{
+"vista": "Delante",
+"img": "img/vb65.jpg"
+},
+{
+"vista": "Detrás",
+"img": "img/vb65b.jpg"
+}
+],
+"talla": "3XL"
 }
 ]
